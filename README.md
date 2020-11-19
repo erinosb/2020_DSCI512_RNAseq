@@ -84,9 +84,9 @@ do
   # stuff here
 done
 ```
-  * This means that we start a counter at 0 (`counter=0`), each time we go through the loop, we advance the counter by 1 (`counter++`), and the loop continues as long as the counter is less than the length of the array called **samples1**. You can notice by looking up in the script, that **samples1** is an array that lists all the forward fastq files in our metadatafile (SRR#####\_1.fastq). 
-  * **Exercise:** Let's turn off the fastp commands within this file and instead just explore the loop. 
-  * Let's put # signs in front of the following lines of code. This will turn them off.
+  * This means that we start a counter at 0 (`counter=0`), each time we go through the loop, we advance the counter by 1 (`counter++`), and the loop continues as long as the counter is less than the length of the array called **samples1**. You can notice by looking up in the script, that **samples1** is an array that lists all the forward fastq files in our metadatafile (SRR#####\_1.fastq) (`counter < ${#samples1[@]}`). 
+  * **Exercise:** Turn off the fastp commands within this file and instead just explore the loop. 
+  * Let's comment out the following sections of code by putting # signs in front of each line. This will turn them off.
   
 ```bash
     ## Make output directories
@@ -127,7 +127,9 @@ done
 The **execute_RNAseq_pipeline.sbatch** script will be used to submit the analyze script to the job sharing utility on SUMMIT called SLURM. This will put your analyze script in the queue and specify how it should be run on the supercomputer system.
 
 For more background on SLURM:
-  * (SLURM on SUMMIT - FAQ)[https://curc.readthedocs.io/en/latest/faq.html]
+  * (JOB SUBMISSIONS ON SUMMIT)[https://curc.readthedocs.io/en/latest/running-jobs/batch-jobs.html]
+  * (SLURM ON SUMMIT - FAQ)[https://curc.readthedocs.io/en/latest/faq.html]
+  * (SLURM DOCUMENTATION)[https://slurm.schedmd.com/sbatch.html]
 
 To execute the bash script, you would do the following...
 
