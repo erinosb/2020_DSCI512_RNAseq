@@ -1,7 +1,8 @@
 # 2020_DSCI512_RNAseq
-DSCI512 - RNA sequencing data analysis - course scripts
 
-A simple set of wrappers and tools for RNA-seq analysis. These tools were designed for the DSCI512 RNA-seq analysis class at Colorado State University
+*DSCI512 - RNA sequencing data analysis - course scripts*
+
+*A simple set of wrappers and tools for RNA-seq analysis. These tools were designed for the DSCI512 RNA-seq analysis class at Colorado State University*
 
 Below is a tutorial on the use of these scripts:
 
