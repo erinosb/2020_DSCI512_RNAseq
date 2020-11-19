@@ -56,6 +56,21 @@ Let's briefly peek into it and see that it contains
   * PIPELINE - *right now this contains a for loop that will execute fastp. We will add onto this section each class*
   * VERSIONS - *this prints out the versions of software used for your future methods section*
 
+**Exercise - explore the analyzer**
+  * Open RNAseq_analyzer_201119.sh in an editor window
+  * In MODIFY THIS SECTION, tailor your RNAseq_analyzer_201119.sh to suit your own input directory
+    * Change 'inputdir=<yourinputdir>` to `inputdir="../01_input''` (should match your actual input directory)
+    * Eventually we will modify most things in this section but for now, just change that one thing.
+  * Type 'exit' on line 133 right before `# FASTP to remove unwanted sequences`. This will short circuit the script and ask it to simply run the code above **exit**
+  * Run the code with the following line of code:
+ 
+ ```bash
+USAGE:
+     bash RNAseq_analyzer_201119.sh <metadataPathAndFile> <pthreads>
+
+$ bash RNAseq_analyzer_201119.sh ../01_input/metadata_gomezOrte.txt 1
+```
+  
 
 The **execute** script will be used to submit the analyze script to the job sharing utility on SUMMIT called SLURM. This will put your analyze script in the queue and specify how it should be run on the supercomputer system.
 
