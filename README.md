@@ -85,10 +85,13 @@ do
 done
 ```
   * This means that we start a counter at 0 (`counter=0`), each time we go through the loop, we advance the counter by 1 (`counter++`), and the loop continues as long as the counter is less than the length of the array called **samples1**. You can notice by looking up in the script, that **samples1** is an array that lists all the forward fastq files in our metadatafile (SRR#####\_1.fastq). 
-  * Exercise: Let's turn off the fastp commands within this file and instead just explore the loop. 
-  * Put # signs in front of the following lines of code:
+  * **Exercise:** Let's turn off the fastp commands within this file and instead just explore the loop. 
+  * Let's put # signs in front of the following lines of code. This will turn them off.
   
 ```bash
+    ## Make output directories
+#    mkdir -p $outputdir"01_fastp/"$samplename
+    
     ## execute fastp
 #    cmd1="fastp -i $inputdir/$sample1 \
 #-I $inputdir/$sample2 \
@@ -103,8 +106,8 @@ done
 #    echo -e "\t$ ${cmd1}"
 #    time eval $cmd1
 ```
-  * Just above that section, where it says ENTER ECHO STATEMENTS HERE, put the following echo statements:
-
+  * Let's use echo statements to see what the value of each variable is. Where it says ENTER ECHO STATEMENTS HERE, put the following echo statements:
+  
 ```bash
     ## Echo statements
     
@@ -112,10 +115,19 @@ done
     echo -e "The counter is currently $counter"
     echo -e "The samplename is currently $samplename"
     echo -e "Sample1 is currently $sample1"
-    echo -e "Sample2 is currently $sample2"
+    echo -e "Sample2 is currently $sample2 \n"
 ```  
+  * Observe how the loop operated. 
   
-The **execute** script will be used to submit the analyze script to the job sharing utility on SUMMIT called SLURM. This will put your analyze script in the queue and specify how it should be run on the supercomputer system.
+  * **Exercise**: Turn everything back how it was. Un-comment the lines of code you commented. Remove the echo statements you added. 
+  
+----
+## The Execute script 
+
+The **execute_RNAseq_pipeline.sbatch** script will be used to submit the analyze script to the job sharing utility on SUMMIT called SLURM. This will put your analyze script in the queue and specify how it should be run on the supercomputer system.
+
+For more background on SLURM:
+  * (SLURM on SUMMIT - FAQ)[https://curc.readthedocs.io/en/latest/faq.html]
 
 To execute the bash script, you would do the following...
 
