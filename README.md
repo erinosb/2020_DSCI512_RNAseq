@@ -119,7 +119,7 @@ done
     echo -e "The counter is currently $counter"
     echo -e "The samplename is currently $samplename"
     echo -e "Sample1 is currently $sample1"
-    echo -e "Sample2 is currently $sample2"
+    echo -e "Sample2 is currently $sample2 \n"
 ```  
   * Observe how the loop operated. 
   
