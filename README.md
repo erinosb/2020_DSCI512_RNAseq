@@ -62,7 +62,7 @@ Let's briefly peek into it and see that it contains
     * Change `inputdir=<yourinputdir>` to `inputdir="../01_input''` (should match your actual input directory)
     * Eventually we will modify most things in this section but for now, just change that one thing.
   * Type `exit` on line 133 right before `# FASTP to remove unwanted sequences`. This will short circuit the script and ask it to simply run the code above `exit`
-  * Run the code with the following line of code:
+  * Run the code with the following command line:
  
  ```bash
 #USAGE:
