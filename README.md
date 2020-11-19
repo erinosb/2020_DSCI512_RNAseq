@@ -188,14 +188,18 @@ $ squeue -u $USER     # Check on your running scripts. Note! One will be Jupyter
 # Other useful SLURM Commands
 $ squeue -u $USER --start #When is my job projected to start?
 $ scontrol show jobid -dd <jobid>. #Detailed info on how my job is running or ran
-$ sstat --jobs=your_job-id   # Information about your job
-$ sstat --jobs=<your_job-id> --format=User,JobName,JobId,MaxRSS      #How much memory did it use?
-$ scancel <your_job-id>
+$ sstat -j <your_job-id>   # Information about your job
+$ sstat --format=JobID,NTasks,MaxRSS --j <your_job_id>      # Get select information on memory usage and other stats from ssstat
+$ scancel <your_job-id> # Cancel your job
+
+# Other ways to check on your job
+  # Check your readfile with more or tail
+  # Check your output directories
 ```
 
   * See [More info on useful SLURM Commands](https://curc.readthedocs.io/en/latest/running-jobs/slurm-commands.html)
   
-** About github **
+**About github**
 
   * github is a great place to store your code and share projects with collaborators. 
   * [My Favorite short github tutorial](https://rogerdudler.github.io/git-guide/)
