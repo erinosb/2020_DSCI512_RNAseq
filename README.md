@@ -143,8 +143,8 @@ By doing this, the **execute** script will submit the **analyze** script to the 
 
 Let's open **execute_RNAseq_pipeline.sbatch** in an editor window and explore how it works. 
 
-**Exercise**
-  * Open execute_RNAseq_pipeline.sbatch in an editor window
+**Exercise - modify the execute script**
+  * Open **execute_RNAseq_pipeline.sbatch** in an editor window
   * It should look like the script below.
   * Tailor the sbatch preamble to fit your preferences:
       * **ntasks** - pick the number of ntasks to use. Try things around 4 or 6 to start out.
@@ -160,7 +160,7 @@ Let's open **execute_RNAseq_pipeline.sbatch** in an editor window and explore ho
 #SBATCH --nodes=1                        # this script is designed to run on one node
 #SBATCH --ntasks=<number of threads>     # modify this number to reflect how many cores you want to use (up to 24)
 #SBATCH --partition=shas-testing         # modify this to reflect which queue you want to use. Either 'shas' or 'shas-testing'
-#SBATCH --qos=normal                     # modify this to reflect which queue you want to use. Options are 'normal' and 'testing'
+#SBATCH --qos=testing                     # modify this to reflect which queue you want to use. Options are 'normal' and 'testing'
 #SBATCH --mail-type=END                  # Keep these two lines of code if you want an e-mail sent to you when it is complete.
 #SBATCH --mail-user=<eID@colostate.edu>  # add your e-mail here
 #SBATCH --output=log_RNAseq_pipe_%j.txt  # this will capture all output in a logfile with %j as the job #
@@ -172,10 +172,20 @@ Let's open **execute_RNAseq_pipeline.sbatch** in an editor window and explore ho
 # Below, you don't need to change $SLURM_NTASKS. It will automatically populate whatever you put in --ntasks=# above.
 
 ## execute the RNA-seq_pipeline
-bash RNAseq_analyzer_201118.sh <metadatafile> $SLURM_NTASKS
+bash RNAseq_analyzer_201119.sh <metadatafile> $SLURM_NTASKS
 ```
 
+**Exercise - Run the execute script**
 
+```bash
+$ sbatch execute_RNAseq_pipeline.sbatch
+
+$ squeue -u $USER     # Check on your running scripts. Note! One will be JupyterHub and the other will be your job submission
+$ 
+
+**execute_RNAseq_pipeline.sbatch**
+  * Open **execute_RNAseq_pipeline.sbatch** in an editor window
+  * It should look like the script below.
 **Usage:** `bash RNAseq_analyzer_201119.sh <metadatafile.txt> <number of threads>`
    *  Make sure the metadata filename and path is correct
    *  $SLURM_NTASKS automatically pulls the number of threads you have requested in the #SBATCH header.
