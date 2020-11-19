@@ -87,7 +87,7 @@ do
   # stuff here
 done
 ```
-  * This means that we start a counter at 0 (`counter=0`), each time we go through the loop, we advance the counter by 1 (`counter++`), and the loop continues as long as the counter is less than the length of the array called **samples1**. You can notice by looking up in the script, that **samples1** is an array that lists all the forward fastq files in our metadatafile (SRR#####\_1.fastq) (`counter < ${#samples1[@]}`). 
+  * This means that we start a counter at 0 (`counter=0`), each time we go through the loop, we advance the counter by 1 (`counter++`), and the loop continues as long as the counter is less than the length of the array called **samples1** (`counter < ${#samples1[@]}`). You can notice by looking up in the script, that **samples1** is an array that lists all the forward fastq files in our metadatafile (SRR#####\_1.fastq). 
   * **Exercise:** Turn off the fastp commands within this file and instead just explore the loop. 
   * Let's comment out the following sections of code by putting # signs in front of each line. This will turn them off.
   
