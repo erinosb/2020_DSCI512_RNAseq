@@ -48,9 +48,9 @@ $ cd ..
 The **RNAseq_analyzer_201119.sh** script contains our pipeline. 
 
 Let's briefly peek into it and see that it contains. 
-  * Open RNAseq_analyzer_201119.sh in an editor window. You'll notice the following sections.
+  * Open **RNAseq_analyzer_201119.sh** in an editor window. You'll notice the following sections.
 
-The pipeline
+**The pipeline**
   * A shebang
   * A long comment section with documentation on its use
   * MODIFY THIS SECTION - *you will tailor this section to each job*
@@ -61,7 +61,7 @@ The pipeline
 
 **Exercise - explore the analyzer**
   * In MODIFY THIS SECTION, tailor your RNAseq_analyzer_201119.sh to suit your own input directory
-    * Change `inputdir=<yourinputdir>` to `inputdir="../01_input''` (should match your actual input directory)
+    * Change `inputdir="<yourinputdir>"` to `inputdir="../01_input''` (should match your actual input directory)
     * Eventually we will modify most things in this section but for now, just change that one thing.
   * Type `exit` on line 133 right before `# FASTP to remove unwanted sequences`. This will short circuit the script and ask it to simply run the code above `exit`
   * Run the code with the following command line:
