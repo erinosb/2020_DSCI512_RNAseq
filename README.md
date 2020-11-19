@@ -187,7 +187,6 @@ $ squeue -u $USER     # Check on your running scripts. Note! One will be Jupyter
 
 # Other useful SLURM Commands
 $ squeue -u $USER --start #When is my job projected to start?
-$ scontrol show jobid -dd <jobid>. #Detailed info on how my job is running or ran
 $ sstat -j <your_job-id>   # Information about your job
 $ sstat --format=JobID,NTasks,MaxRSS --j <your_job_id>      # Get select information on memory usage and other stats from ssstat
 $ scancel <your_job-id> # Cancel your job
