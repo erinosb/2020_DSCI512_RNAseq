@@ -31,7 +31,11 @@ $ git clone <paste path to github repository here>
 Let's copy the two scripts up one directory. This will create a duplicate copy for you to work on and will move the script directly into the ''02_scripts'' directory, not its sub-directory.
 
 ```bash
-$ cd 2020_
+$ cd 2020_DSCI512_RNAseq
+$ cp analyze ..
+$ cp execute ..
+$ cd ..
+```
 
 Notice that instead of having a single script, you now have a few scripts. These will work in a **Two step** method for executing jobs on summit. The `execute` script calls the `analyze` script.
 
