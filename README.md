@@ -99,8 +99,8 @@ done
 #-I $inputdir/$sample2 \
 #-o ${outputdir}01_fastp/${samplename}/${samplename}_trim_1.fastq \
 #-O ${outputdir}01_fastp/${samplename}/${samplename}_trim_2.fastq \
-#-h ${outputdir}01_fastp/${samplename}/${samplename}_report.html \
-#-j ${outputdir}01_fastp/${samplename}/${samplename}_report.json \
+#-h ${outputdir}01_fastp/${samplename}/${nickname}_report.html \
+#-j ${outputdir}01_fastp/${samplename}/${nickname}_report.json \
 #--detect_adapter_for_pe \
 #--thread $pthread \
 #-x -g "
@@ -117,7 +117,8 @@ done
     echo -e "The counter is currently $counter"
     echo -e "The samplename is currently $samplename"
     echo -e "Sample1 is currently $sample1"
-    echo -e "Sample2 is currently $sample2 \n"
+    echo -e "Sample2 is currently $sample2"
+    echo -e "Nickname is currently $nickname \n"
 ```  
   * Observe how the loop operated. 
   
