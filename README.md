@@ -35,14 +35,29 @@ Let's copy the two scripts up one directory. This will create duplicate copies f
 
 ```bash
 $ cd 2020_DSCI512_RNAseq
-$ cp analyze ..
-$ cp execute ..
+$ cp RNAseq_analyzer_201119.sh ..
+$ cp execute_RNAseq_pipeline.sbatch ..
 $ cd ..
 ```
 
-The **analyze** script contains the beginning of our pipeline. 
+----
+## The RNAseqAnalyzer Script 
 
-The **execute** script will be used to submite the analyze script to the job sharing utility on SUMMIT called SLURM. This will put your analyze script in the queue and specify how it should be run on the supercomputer system.
+
+The **RNAseq_analyzer_201119.sh** script contains our pipeline. 
+
+Let's briefly peek into it and see that it contains
+
+  * A shebang
+  * A long comment section with documentation on its use
+  * MODIFY THIS SECTION
+  * BEGIN CODE
+  * META DATA
+  * PIPELINE - right now this contains a for loop that will execute fastp. We will add onto this section each class.
+  * VERSIONS
+
+
+The **execute** script will be used to submit the analyze script to the job sharing utility on SUMMIT called SLURM. This will put your analyze script in the queue and specify how it should be run on the supercomputer system.
 
 To execute the bash script, you would do the following...
 
