@@ -50,11 +50,11 @@ Let's briefly peek into it and see that it contains
 
   * A shebang
   * A long comment section with documentation on its use
-  * MODIFY THIS SECTION - // You will tailor this section to each job //
-  * BEGIN CODE - // the code starts and reports how it is running //
-  * META DATA - // this part pulls information out of the metadata file to create bash arrays //
-  * PIPELINE - //right now this contains a for loop that will execute fastp. We will add onto this section each class//
-  * VERSIONS - // this prints out the versions of software used for your future methods section //
+  * MODIFY THIS SECTION - *you will tailor this section to each job*
+  * BEGIN CODE - *the code starts and reports how it is running*
+  * META DATA - *this part pulls information out of the metadata file to create bash arrays*
+  * PIPELINE - *right now this contains a for loop that will execute fastp. We will add onto this section each class*
+  * VERSIONS - *this prints out the versions of software used for your future methods section*
 
 
 The **execute** script will be used to submit the analyze script to the job sharing utility on SUMMIT called SLURM. This will put your analyze script in the queue and specify how it should be run on the supercomputer system.
