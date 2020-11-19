@@ -131,9 +131,9 @@ done
 The **execute_RNAseq_pipeline.sbatch** script will be used to submit the analyze script to the job sharing utility on SUMMIT called SLURM. This will put your analyze script in the queue and specify how it should be run on the supercomputer system.
 
 For more background on SLURM:
-  * (JOB SUBMISSIONS ON SUMMIT)[https://curc.readthedocs.io/en/latest/running-jobs/batch-jobs.html]
-  * (SLURM ON SUMMIT - FAQ)[https://curc.readthedocs.io/en/latest/faq.html]
-  * (SLURM DOCUMENTATION)[https://slurm.schedmd.com/sbatch.html]
+  * [JOB SUBMISSIONS ON SUMMIT](https://curc.readthedocs.io/en/latest/running-jobs/batch-jobs.html)
+  * [SLURM ON SUMMIT - FAQ](https://curc.readthedocs.io/en/latest/faq.html)
+  * [SLURM DOCUMENTATION](https://slurm.schedmd.com/sbatch.html)
 
 To execute the bash script, we will do the following...
 
