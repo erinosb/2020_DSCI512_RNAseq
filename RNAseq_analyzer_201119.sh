@@ -141,7 +141,6 @@ do
     samplename=${names[$counter]}
     sample1=${samples1[$counter]}
     sample2=${samples2[$counter]}
-    nickname=$names[$counter]}
 
     ## Echo statements
     
@@ -155,8 +154,8 @@ do
 -I $inputdir/$sample2 \
 -o ${outputdir}01_fastp/${samplename}/${samplename}_trim_1.fastq \
 -O ${outputdir}01_fastp/${samplename}/${samplename}_trim_2.fastq \
--h ${outputdir}01_fastp/${samplename}/${nickname}_report.html \
--j ${outputdir}01_fastp/${samplename}/${nickname}_report.json \
+-h ${outputdir}01_fastp/${samplename}/${samplename}_report.html \
+-j ${outputdir}01_fastp/${samplename}/${samplename}_report.json \
 --detect_adapter_for_pe \
 --thread $pthread \
 -x -g "
