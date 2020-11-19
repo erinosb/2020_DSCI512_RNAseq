@@ -16,4 +16,4 @@
 # Below, you don't need to change $SLURM_NTASKS. It will automatically populate whatever you put in --ntasks=# above.
 
 ## execute the RNA-seq_pipeline
-bash RNAseq_analyzer_201118.sh <metadatafile> $SLURM_NTASKS
+bash RNAseq_analyzer_201119.sh <metadatafile> $SLURM_NTASKS
