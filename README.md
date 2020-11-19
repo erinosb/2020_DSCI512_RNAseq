@@ -159,7 +159,7 @@ Let's open **execute_RNAseq_pipeline.sbatch** in an editor window and explore ho
 #SBATCH --job-name=RNAseq_pipeline 
 #SBATCH --nodes=1                        # this script is designed to run on one node
 #SBATCH --ntasks=<number of threads>     # modify this number to reflect how many cores you want to use (up to 24)
-#SBATCH --partition=shas                 # modify this to reflect which queue you want to use.
+#SBATCH --partition=shas-testing         # modify this to reflect which queue you want to use. Either 'shas' or 'shas-testing'
 #SBATCH --qos=normal                     # modify this to reflect which queue you want to use. Options are 'normal' and 'testing'
 #SBATCH --mail-type=END                  # Keep these two lines of code if you want an e-mail sent to you when it is complete.
 #SBATCH --mail-user=<eID@colostate.edu>  # add your e-mail here
