@@ -15,10 +15,10 @@ You will be able to tailor these templates to your own purposes.
 
 **Exercise**
 
-  * Locate the green **clone or download** button on the top right of this page. Click it.
+  * Locate the green **code** button on the top right of this page. Click it.
   * Click on the clipboard icon. This will save a github URL address to your clipboard.
   * Switch over to JupyterHub linked to SUMMIT.
-  * Navigate into your folder for `PROJ01_GomezOrte/02_scripts` and use `git clone` as shown below to pull the information from github to your location on summit.
+  * Navigate into your directory for `PROJ01_GomezOrte/02_scripts` and use `git clone` as shown below to pull the information from github to your location on SUMMIT.
   
 ```bash
 $ cd /scratch/summit/<eID>@colostate.edu    #Replace <eID> with your EID
@@ -28,7 +28,9 @@ $ git clone <paste path to github repository here>
 
 **Explore what you obtained.**
 
-Let's copy the two scripts up one directory. This will create a duplicate copy for you to work on and will move the script directly into the ''02_scripts'' directory, not its sub-directory.
+Notice that instead of having a single script, you now have a few scripts. These will work in a **Two step** method for executing jobs on summit. The `execute` script calls the `analyze` script. This Readme file and a license file were also downloaded.
+
+Let's copy the two scripts up one directory. This will create duplicate copies for you to edit on and will move the scripts directly into ''02_scripts'', not its sub-directory.
 
 ```bash
 $ cd 2020_DSCI512_RNAseq
@@ -37,9 +39,11 @@ $ cp execute ..
 $ cd ..
 ```
 
-Notice that instead of having a single script, you now have a few scripts. These will work in a **Two step** method for executing jobs on summit. The `execute` script calls the `analyze` script.
+The **analyze** script contains the beginning of our pipeline. 
 
-To execute the pipeline, you would do the following:
+The **execute** script will be used to submite the analyze script to the job sharing utility on SUMMIT called SLURM. This will put your analyze script in the queue and specify how it should be run on the supercomputer system.
+
+To execute the bash script, you would do the following...
 
 ```bash
 $ sbatch execute_RNAseq_pipeline.sbatch
@@ -50,11 +54,11 @@ By doing this, the `execute` script will start the `analyze` script by calling t
 ```bash
 
 ## execute the RNA-seq_pipeline
-bash RNAseq_analyzer_191204.sh ../../01_input/metadata_gomezOrte_subset.txt $SLURM_NTASKS
+bash RNAseq_analyzer_201119.sh ../01_input/metadata_gomezOrte_subset.txt $SLURM_NTASKS
 ```
 
-**Usage:** `bash RNAseq_analyzer_191204.sh <metadatafile.txt> <number of threads>`
-   *  Make sure the metadata file is correct.
+**Usage:** `bash RNAseq_analyzer_201119.sh <metadatafile.txt> <number of threads>`
+   *  Make sure the metadata filename and path is correct
    *  $SLURM_NTASKS automatically pulls the number of threads you have requested in the #SBATCH header.
 
 **Exercise**
