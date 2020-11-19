@@ -171,13 +171,13 @@ done
 ######## VERSIONS #############
 echo -e "\n>>> VERSIONS:"
 echo -e "\n>>> FASTP VERSION:"
-$fastp --version
+fastp --version
 echo -e "\n>>> HISAT2 VERSION:"
-$hisat2 --version
+hisat2 --version
 echo -e "\n>>> SAMTOOLS VERSION:"
-$samtools --version
+samtools --version
 echo -e "\n>>> FEATURECOUNTS VERSION:"
-$featureCounts -v
+featureCounts -v
 echo -e "\n>>> BAMCOVERAGE VERSION:"
 $bamCoverage --version
 echo -e ">>> END: Analayzer complete."
