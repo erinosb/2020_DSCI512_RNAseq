@@ -128,7 +128,7 @@ done
 ----
 ## The Execute script 
 
-The **execute_RNAseq_pipeline.sbatch** script will be used to submit the analyze script to the job sharing utility on SUMMIT called SLURM. This will put your analyze script in the queue and specify how it should be run on the supercomputer system.
+The **execute_RNAseq_pipeline.sbatch** script will be used to submit the analyze script to the **job batch manager** called **SLURM**. This will put your analyze script in the queue and specify how it should be run on the supercomputer system.
 
 For more background on SLURM:
   * [JOB SUBMISSIONS ON SUMMIT](https://curc.readthedocs.io/en/latest/running-jobs/batch-jobs.html)
@@ -141,7 +141,7 @@ To execute the bash script, we will do the following...
 $ sbatch execute_RNAseq_pipeline.sbatch
 ```
 
-By doing this, the **execute** script will submit the **analyze** script to the **job batch manager** called **SLURM**. This will ensure the **analyzer** script is run at the proper time and with the requested resources on compute nodes on the SUMMIT system. What is SLURM? Slurm is a job scheduling system for large and small Linux clusters. It puts your job into a 'queue'. When the resources you have requested are available, your job will begin. SLURM is organized so that different users have different levels of priority in the queue. On SUMMIT, users who use fewer resources have higher priority. Power users have less priority and are encouraged to purchase greater access to the system if it is a problem.
+By doing this, the **execute** script will submit the **analyzer** script to **SLURM**. This will ensure the **analyzer** script is run at the proper time and with the requested resources on compute nodes on the SUMMIT system. What is SLURM? Slurm is a job scheduling system for large and small Linux clusters. It puts your job into a 'queue'. When the resources you have requested are available, your job will begin. SLURM is organized so that different users have different levels of priority in the queue. On SUMMIT, users who use fewer resources have higher priority. Power users have less priority and are encouraged to purchase greater access to the system if it is a problem.
 
 Let's open **execute_RNAseq_pipeline.sbatch** in an editor window and explore how it works. 
 
@@ -183,13 +183,18 @@ bash RNAseq_analyzer_201119.sh <metadatafile> $SLURM_NTASKS
 $ sbatch execute_RNAseq_pipeline.sbatch
 
 $ squeue -u $USER     # Check on your running scripts. Note! One will be JupyterHub and the other will be your job submission
-$ 
 
-**execute_RNAseq_pipeline.sbatch**
-  * Open **execute_RNAseq_pipeline.sbatch** in an editor window
-  * It should look like the script below.
-**Usage:** `bash RNAseq_analyzer_201119.sh <metadatafile.txt> <number of threads>`
-   *  Make sure the metadata filename and path is correct
-   *  $SLURM_NTASKS automatically pulls the number of threads you have requested in the #SBATCH header.
+
+# Other useful SLURM Commands
+$ squeue -u $USER --start #When is my job projected to start?
+$ scontrol show jobid -dd <jobid>. #Detailed info on how my job is running or ran
+$ sstat --jobs=your_job-id   # Information about your job
+$ sstat --jobs=<your_job-id> --format=User,JobName,JobId,MaxRSS      #How much memory did it use?
+$ scancel <your_job-id>
+```
+
+  * See [More info on useful SLURM Commands](https://curc.readthedocs.io/en/latest/running-jobs/slurm-commands.html)
+
+
 
 
