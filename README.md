@@ -61,7 +61,7 @@ Let's briefly peek into it and see that it contains
   * In MODIFY THIS SECTION, tailor your RNAseq_analyzer_201119.sh to suit your own input directory
     * Change `inputdir=<yourinputdir>` to `inputdir="../01_input''` (should match your actual input directory)
     * Eventually we will modify most things in this section but for now, just change that one thing.
-  * Type 'exit' on line 133 right before `# FASTP to remove unwanted sequences`. This will short circuit the script and ask it to simply run the code above **exit**
+  * Type `exit` on line 133 right before `# FASTP to remove unwanted sequences`. This will short circuit the script and ask it to simply run the code above `exit`
   * Run the code with the following line of code:
  
  ```bash
@@ -70,8 +70,51 @@ Let's briefly peek into it and see that it contains
 
 $ bash RNAseq_analyzer_201119.sh ../01_input/metadata_gomezOrte.txt 1
 ```
-  
 
+  * Walk through the output that was displayed to the screen and find every place in the code that specified each line of output
+  
+**Exercise - explore the fastp loop of the analyzer**
+  * Next, we will explore how the fastp loop of the analyzer works.
+  * **Important:** Remove the `exit` line of code you introduced at line 133.
+  * Look at the general structure of how the loop is written.
+
+```bash
+for (( counter=0; counter < ${#samples1[@]}; counter++ ))
+do
+  # stuff here
+done
+```
+  * This means that we start a counter at 0 (`counter=0`), each time we go through the loop, we advance the counter by 1 (`counter++`), and the loop continues as long as the counter is less than the length of the array called **samples1**. You can notice by looking up in the script, that **samples1** is an array that lists all the forward fastq files in our metadatafile (SRR#####\_1.fastq). 
+  * Exercise: Let's turn off the fastp commands within this file and instead just explore the loop. 
+  * Put # signs in front of the following lines of code:
+  
+```bash
+    ## execute fastp
+#    cmd1="fastp -i $inputdir/$sample1 \
+#-I $inputdir/$sample2 \
+#-o ${outputdir}01_fastp/${samplename}/${samplename}_trim_1.fastq \
+#-O ${outputdir}01_fastp/${samplename}/${samplename}_trim_2.fastq \
+#-h ${outputdir}01_fastp/${samplename}/${samplename}_report.html \
+#-j ${outputdir}01_fastp/${samplename}/${samplename}_report.json \
+#--detect_adapter_for_pe \
+#--thread $pthread \
+#-x -g "
+#    
+#    echo -e "\t$ ${cmd1}"
+#    time eval $cmd1
+```
+  * Just above that section, where it says ENTER ECHO STATEMENTS HERE, put the following echo statements:
+
+```bash
+    ## Echo statements
+    
+            ##### ENTER ECHO STATEMENTS HERE #####
+    echo -e "The counter is currently $counter"
+    echo -e "The samplename is currently $samplename"
+    echo -e "Sample1 is currently $sample1"
+    echo -e "Sample2 is currently $sample2"
+```  
+  
 The **execute** script will be used to submit the analyze script to the job sharing utility on SUMMIT called SLURM. This will put your analyze script in the queue and specify how it should be run on the supercomputer system.
 
 To execute the bash script, you would do the following...
