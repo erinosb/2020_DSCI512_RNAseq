@@ -47,8 +47,10 @@ $ cd ..
 
 The **RNAseq_analyzer_201119.sh** script contains our pipeline. 
 
-Let's briefly peek into it and see that it contains
+Let's briefly peek into it and see that it contains. 
+  * Open RNAseq_analyzer_201119.sh in an editor window. You'll notice the following sections.
 
+The pipeline
   * A shebang
   * A long comment section with documentation on its use
   * MODIFY THIS SECTION - *you will tailor this section to each job*
@@ -58,7 +60,6 @@ Let's briefly peek into it and see that it contains
   * VERSIONS - *this prints out the versions of software used for your future methods section*
 
 **Exercise - explore the analyzer**
-  * Open RNAseq_analyzer_201119.sh in an editor window
   * In MODIFY THIS SECTION, tailor your RNAseq_analyzer_201119.sh to suit your own input directory
     * Change `inputdir=<yourinputdir>` to `inputdir="../01_input''` (should match your actual input directory)
     * Eventually we will modify most things in this section but for now, just change that one thing.
@@ -194,6 +195,13 @@ $ scancel <your_job-id>
 ```
 
   * See [More info on useful SLURM Commands](https://curc.readthedocs.io/en/latest/running-jobs/slurm-commands.html)
+  
+** About github **
+
+  * github is a great place to store your code and share projects with collaborators. 
+  * [My Favorite short github tutorial](https://rogerdudler.github.io/git-guide/)
+  
+  
 
 
 
