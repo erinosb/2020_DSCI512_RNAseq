@@ -66,7 +66,9 @@ Let's briefly peek into it and see that it contains
  
  ```bash
 #USAGE:
-#     bash RNAseq_analyzer_201119.sh <metadataPathAndFile> <pthreads>
+#     bash RNAseq_analyzer_201119.sh </path/metadatafile.txt> <number of threads>
+#                  Make sure the metadata filename and path is correct
+#                  Number of threads refers to how many cores to use for parallel processing
 
 $ bash RNAseq_analyzer_201119.sh ../01_input/metadata_gomezOrte.txt 1
 ```
@@ -131,26 +133,51 @@ For more background on SLURM:
   * (SLURM ON SUMMIT - FAQ)[https://curc.readthedocs.io/en/latest/faq.html]
   * (SLURM DOCUMENTATION)[https://slurm.schedmd.com/sbatch.html]
 
-To execute the bash script, you would do the following...
+To execute the bash script, we will do the following...
 
 ```bash
 $ sbatch execute_RNAseq_pipeline.sbatch
 ```
 
-By doing this, the `execute` script will start the `analyze` script by calling the following lines of code:
+By doing this, the **execute** script will submit the **analyze** script to the **job batch manager** called **SLURM**. This will ensure the **analyzer** script is run at the proper time and with the requested resources on compute nodes on the SUMMIT system. What is SLURM? Slurm is a job scheduling system for large and small Linux clusters. It puts your job into a 'queue'. When the resources you have requested are available, your job will begin. SLURM is organized so that different users have different levels of priority in the queue. On SUMMIT, users who use fewer resources have higher priority. Power users have less priority and are encouraged to purchase greater access to the system if it is a problem.
 
+Let's open **execute_RNAseq_pipeline.sbatch** in an editor window and explore how it works. 
+
+**Exercise**
+  * Open execute_RNAseq_pipeline.sbatch in an editor window
+  * It should look like the script below.
+  * Tailor the sbatch preamble to fit your preferences:
+      * **ntasks** - pick the number of ntasks to use. Try things around 4 or 6 to start out.
+      * **mail-type** and **mail-user** - decide whether you want SLURM to email you when your job is done. If so, keep these lines of code and enter your proper e-mail. If not, delete them.
+  * Tailor the **bash** command to fit your preferences:
+     * Modify <metadatafile> to include the path and filename of your metadata file.
+     * **DON'T CHANGE $SLURM TASKS. It will automatically populate whatever you put in --ntasks=# above.
+  
 ```bash
+#!/usr/bin/env bash
+
+#SBATCH --job-name=RNAseq_pipeline 
+#SBATCH --nodes=1                        # this script is designed to run on one node
+#SBATCH --ntasks=<number of threads>     # modify this number to reflect how many cores you want to use (up to 24)
+#SBATCH --partition=shas                 # modify this to reflect which queue you want to use.
+#SBATCH --qos=normal                     # modify this to reflect which queue you want to use. Options are 'normal' and 'testing'
+#SBATCH --mail-type=END                  # Keep these two lines of code if you want an e-mail sent to you when it is complete.
+#SBATCH --mail-user=<eID@colostate.edu>  # add your e-mail here
+#SBATCH --output=log_RNAseq_pipe_%j.txt  # this will capture all output in a logfile with %j as the job #
+
+######### Instructions ###########
+
+# Modify your SLURM entries above to fit your choices
+# Below, modify the SECOND argument to point to YOUR metadata.file
+# Below, you don't need to change $SLURM_NTASKS. It will automatically populate whatever you put in --ntasks=# above.
 
 ## execute the RNA-seq_pipeline
-bash RNAseq_analyzer_201119.sh ../01_input/metadata_gomezOrte_subset.txt $SLURM_NTASKS
+bash RNAseq_analyzer_201118.sh <metadatafile> $SLURM_NTASKS
 ```
+
 
 **Usage:** `bash RNAseq_analyzer_201119.sh <metadatafile.txt> <number of threads>`
    *  Make sure the metadata filename and path is correct
    *  $SLURM_NTASKS automatically pulls the number of threads you have requested in the #SBATCH header.
 
-**Exercise**
-  * Open execute_RNAseq_pipeline.sbatch in an editor window
-  * Tailor your execute_RNAseq_pipeline.sbatch script to suit your own inputs
-  * Check the sbatch preamble to make sure everything appears to be working correctly
-  * Include the proper path to your metadata file
+
