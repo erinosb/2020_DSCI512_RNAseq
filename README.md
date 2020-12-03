@@ -226,6 +226,34 @@ $ cd 2020_DSCI512_RNAseq
 $ git pull
 ```
 
+  * Now, try to copy the new RNA seq analyzer and new execute scripts into the /02_scripts directory (it's the parent one)
+  * Now, try to modify the **MODIFY THIS SECTION** to analyze your entire dataset.
+  * NOTE: comment out the cleanup task first. Only run the cleanup task after the analyzer task has been successful.
+  
+```
+
+####### MODIFY THIS SECTION #############
+
+#The input samples live in directory:
+inputdir="../01_input"
+
+#Metadata file. This pulls the metadata path and file from the command line
+metadata=$1
+
+#This is where the ht2 files live:
+hisat2path="/scratch/summit/erinnish\@colostate.edu/DSCI512/PROJ02_ce11IndexBuild/ce11"
+
+#This is where the genome sequence lives:
+genomefa="../01_input/ce11_wholegenome.fa"
+
+#This is where the gtf file lives:
+gtffile="../01_input/ce11_annotation_ensembl_to_ucsc.gtf"
+
+#This is the output_directory:
+DATE=`date +%Y-%m-%d`
+#OR
+#DATE='2020-11-19'
+outputdir="../03_output/"$DATE"_output/"
 
 
 
