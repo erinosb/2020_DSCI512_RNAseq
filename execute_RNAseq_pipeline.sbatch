@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 #SBATCH --job-name=RNAseq_pipeline 
-#SBATCH --nodes=1                        # this script is designed to run on one node
-#SBATCH --ntasks=<number of threads>     # modify this number to reflect how many cores you want to use (up to 24)
-#SBATCH --partition=shas-testing         # modify this to reflect which queue you want to use. Either 'shas' or 'shas-testing'
-#SBATCH --qos=testing                     # modify this to reflect which queue you want to use. Options are 'normal' and 'testing'
-#SBATCH --mail-type=END                  # Keep these two lines of code if you want an e-mail sent to you when it is complete.
-#SBATCH --mail-user=<eID@colostate.edu>  # add your e-mail here
-#SBATCH --output=log_RNAseq_pipe_%j.txt  # this will capture all output in a logfile with %j as the job #
+#SBATCH --nodes=1                           # this script is designed to run on one node
+#SBATCH --ntasks=16                         # modify this number to reflect how many cores you want to use (up to 24)
+#SBATCH --partition=shas                    # modify this to reflect which queue you want to use. Either 'shas' or 'shas-testing'
+#SBATCH --qos=normal                        # Should be 'normal' if partition is 'shas'; should be 'testing' if partition is 'shas-testing'
+#SBATCH --mail-type=END                     # Keep these two lines of code if you want an e-mail sent to you when it is complete.
+#SBATCH --mail-user=<youremail>             # add your e-mail here
+#SBATCH --output=log_RNAseq_pipe_%j.txt     # this will capture all output in a logfile with %j as the job #
 
 ######### Instructions ###########
 
@@ -16,4 +16,7 @@
 # Below, you don't need to change $SLURM_NTASKS. It will automatically populate whatever you put in --ntasks=# above.
 
 ## execute the RNA-seq_pipeline
-bash RNAseq_analyzer_201119.sh <metadatafile> $SLURM_NTASKS
+bash RNAseq_analyzer_201203.sh <metadatafile> $SLURM_NTASKS
+
+## clean up by zipping .fastq files and deleting extra files
+#bash RNAseq_cleanup_201203.sh <metadatafile> 
