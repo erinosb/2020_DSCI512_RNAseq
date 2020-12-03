@@ -206,6 +206,26 @@ $ scancel <your_job-id> # Cancel your job
   
 # December 3, 2020 - Automation Revisited 
 
+Today we will continue to add on to the automation pipeline we started a few weeks ago.
+
+I have added some scripts into this repository that you can use for the Gomez-Orte dataset. You can also use these scripts for your Final Project. Let's update the scripts we have:
+
+  * Navigate to your `PROJ01_GomezOrte/02_scripts directory`
+  * Navigate inside the folder `2020_DSCI512_RNAseq`
+  
+```bash
+$ pwd
+~/PROJ01_GomezOrte/02_scripts
+$ cd 2020_DSCI512_RNAseq
+```
+
+  * Now you are in the github sync'd directory we initiated last time (see instructions above).
+  * To update this directory and obtain new scripts, **pull** from the github repository like so..
+  
+```bash
+$ git pull
+```
+
 
 
 
