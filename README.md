@@ -204,6 +204,8 @@ $ scancel <your_job-id> # Cancel your job
   * [My Favorite short github tutorial](https://rogerdudler.github.io/git-guide/)
   
   
+----
+
 # December 3, 2020 - Automation Revisited 
 
 Today we will continue to add on to the automation pipeline we started a few weeks ago.
