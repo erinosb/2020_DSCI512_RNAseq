@@ -204,6 +204,8 @@ $ scancel <your_job-id> # Cancel your job
   * [My Favorite short github tutorial](https://rogerdudler.github.io/git-guide/)
   
   
+# December 3, 2020 - Automation Revisited 
+
 
 
 
