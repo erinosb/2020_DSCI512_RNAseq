@@ -235,25 +235,35 @@ $ git pull
 ####### MODIFY THIS SECTION #############
 
 #The input samples live in directory:
-inputdir="../01_input"
+inputdir="<yourinputdir>"
 
 #Metadata file. This pulls the metadata path and file from the command line
 metadata=$1
 
 #This is where the ht2 files live:
-hisat2path="/scratch/summit/erinnish\@colostate.edu/DSCI512/PROJ02_ce11IndexBuild/ce11"
+hisat2path="<hisatpath/previx>"
 
 #This is where the genome sequence lives:
-genomefa="../01_input/ce11_wholegenome.fa"
+genomefa="<genome.fa>"
 
 #This is where the gtf file lives:
-gtffile="../01_input/ce11_annotation_ensembl_to_ucsc.gtf"
+gtffile="<annotation.gtf>"
 
 #This is the output_directory:
 DATE=`date +%Y-%m-%d`
 #OR
 #DATE='2020-11-19'
 outputdir="../03_output/"$DATE"_output/"
+
+```
+
+ * The only tricky one will be `genomefa="<genome.fa>"`
+ * This one is something you will need to make by concatenating all your idividual chromosome files into one large genome file.
+ * To do this, navigate to `PROJ02_ce11IndexBuild` and concatenate all your `.fa` chromosome files together into one large genome fasta file like so:
+
+```bash
+$ cat *.fa > ce11_genome.fa
+```
 
 
 
