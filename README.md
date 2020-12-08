@@ -269,5 +269,7 @@ $ cat *.fa > ce11_genome.fa
 
 **Take home challenge** Go ahead and try to get this software to run on all the Gomez-Orte input samples. It should take a little over 1 hr to run using 16 cores. Aim for 16 - 24 cores
 
+**Note:** I accidentally included *my* information in the MODIFY THIS SECTION part of the code. Oops. Go ahead and modify that to your relevant information. Bonus... some of our information in that section may be the same.
+
 
 
