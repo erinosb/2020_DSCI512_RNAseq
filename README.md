@@ -271,5 +271,18 @@ $ cat *.fa > ce11_genome.fa
 
 **Note:** I accidentally included *my* information in the MODIFY THIS SECTION part of the code. Oops. Go ahead and modify that to your relevant information. Bonus... some of our information in that section may be the same.
 
+# December 8, 2020 - Clean up
+
+  * Once you are convinced that your script works, try to run the cleanup script. 
+  * For a "real run" try to run the `RNAseq_analyzer_201230.sh` and `RNAseq_cleanup_201203.sh` scripts sequentially in one go.
+  * Step1: Modify the `RNAseq_cleanup_201203.sh` script to specify the input and output dir (look in its MODIFY THIS SECTION)
+  * Step2: Ensure the `RNAseq_analyzer_201230.sh` is also correct within the MODIFY THIS SECTION part
+  * Step3: Modify `execute_RNAseq_pipeline.sbatch` pipeline to ensure both scripts will run.
+  * Step4: Run `execute_RNAseq_pipeline.sbatch`
+  * Hint: Make sure that if you leave the script running over night, that you specify the date properly in `RNAseq_cleanup_201203.sh` to account for the output directory it should look for.
+  
+**Warning**: Make sure to sync all files on SUMMIT to a local computer so you don't lose them in 90 days from their initiation.
+
+
 
 
